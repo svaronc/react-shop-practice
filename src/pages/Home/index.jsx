@@ -8,7 +8,7 @@ import { ProductDetail } from "../../components/ProductDetail";
 export function Home() {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    axios.get("https://api.escuelajs.co/api/v1/products").then((response) => {
+    axios.get("https://fakestoreapi.com/products").then((response) => {
       console.log(response.data);
       setItems(response.data);
     });

@@ -15,7 +15,7 @@ export const ShoppingCartProvider = ({ children }) => {
   //*product detail show product on the side
   const [productToShow, setProductToShow] = useState({});
   //* Shopping cart state - add products to cart
-  const [cartProducts, setCartProducts] = useState({});
+  const [cartProducts, setCartProducts] = useState([]);
   //* checkoutSideMenu state /functions to open and close
   const [isCheckoutSideMenu, setIsCheckoutSideMenu] = useState(false);
   const openCheckoutSideMenu = () => setIsCheckoutSideMenu(true);
@@ -45,5 +45,5 @@ export const ShoppingCartProvider = ({ children }) => {
 };
 
 ShoppingCartProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.any
 };

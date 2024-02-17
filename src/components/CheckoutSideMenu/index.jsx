@@ -2,9 +2,15 @@ import "./styles.css";
 import { useContext } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ShoppingCartContext } from "../../Context";
+import { OrderCard } from "../OrderCard";
 
 export const CheckoutSideMenu = () => {
   const context = useContext(ShoppingCartContext);
+
+  const handleDelete = (id) => {
+    const filteredProducts = context.cartProducts.filter((product) => product.id !== id)
+    context.setCartProducts(filteredProducts)
+  }
 
   return (
     <aside
@@ -20,6 +26,18 @@ export const CheckoutSideMenu = () => {
             onClick={() => context.closeCheckoutSideMenu()}
           ></XMarkIcon>
         </div>
+      </div>
+      <div className="px-6 overflow-y-scroll">
+        {context.cartProducts.map((product) => (
+          <OrderCard
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            imageUrl={product.image}
+            price={product.price}
+            handleDelete ={handleDelete}
+          />
+        ))}
       </div>
     </aside>
   );
