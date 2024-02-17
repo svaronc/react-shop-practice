@@ -31,6 +31,7 @@ export const Card = ({ data }) => {
         <div
             className="absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 rounded-full m-2"
           >
+            
             <CheckIcon className="h-6 w-6 text-white" />
           </div>
       )
@@ -56,7 +57,7 @@ export const Card = ({ data }) => {
           {data.category}
         </span>
         <img
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-lg shadow-xl"
           src={data.image}
           alt={data.title}
         />
