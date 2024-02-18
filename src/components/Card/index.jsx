@@ -54,11 +54,11 @@ export const Card = ({ data }) => {
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
-          {data.category}
+          {data.category.name}
         </span>
         <img
           className="w-full h-full object-cover rounded-lg shadow-xl"
-          src={data.image}
+          src={data.images[0]}
           alt={data.title}
         />
         {renderIcon(data.id)}

@@ -26,6 +26,8 @@ export const CheckoutSideMenu = () => {
     context.setCartProducts([]);
     context.setCount(0);
     context.closeCheckoutSideMenu()
+    context.setSearchByTitle()
+    context.setSearchByCategory()
   };
   return (
     <aside
@@ -48,7 +50,7 @@ export const CheckoutSideMenu = () => {
             key={product.id}
             id={product.id}
             title={product.title}
-            imageUrl={product.image}
+            imageUrl={product.images[0]}
             price={product.price}
             handleDelete={handleDelete}
           />
