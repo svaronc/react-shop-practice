@@ -12,7 +12,7 @@ export const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     );
   }
   return (
-    <div className="flex justify-between items-center mb-3">
+    <div className="flex justify-between items-center mb-3 shadow-md rounded-lg border border-black">
       <div className=" flex items-center gap-2">
         <figure className="w-20 h-20">
           <img
@@ -23,8 +23,8 @@ export const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
         </figure>
         <p className="text-sm font-light">{title}</p>
       </div>
-      <div className="flex items-center gap-2">
-        <p className="text-lg font-medium">{price}</p>
+      <div className="flex items-center gap-2 mr-2">
+        <p className="text-lg font-medium">${price}</p>
         {renderXMarkIcon}
       </div>
     </div>

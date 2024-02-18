@@ -1,5 +1,6 @@
+import axios from "axios";
 import { PropTypes } from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ShoppingCartContext = createContext();
 
@@ -24,6 +25,15 @@ export const ShoppingCartProvider = ({ children }) => {
 
   //* Shopping cart order
   const [order, setOrder] = useState([]);
+  //* state for products and get request to the API
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products").then((response) => {
+      setItems(response.data);
+    });
+  }, []);
 
   return (
     <ShoppingCartContext.Provider
@@ -42,6 +52,8 @@ export const ShoppingCartProvider = ({ children }) => {
         closeCheckoutSideMenu,
         order,
         setOrder,
+        items,
+        setItems,
       }}
     >
       {children}

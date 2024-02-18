@@ -1,21 +1,16 @@
 import { Layout } from "../../components/Layout";
 import { Card } from "../../components/Card";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { ProductDetail } from "../../components/ProductDetail";
+import { ShoppingCartContext } from "../../Context";
+import { useContext } from "react";
 
 
 export function Home() {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((response) => {
-      setItems(response.data);
-    });
-  }, []);
+ const context = useContext(ShoppingCartContext)
   return (
     <Layout>
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {items?.map((item) => (
+        {context.items?.map((item) => (
           <Card data={item} key={item.id} />
         ))}
       </div>

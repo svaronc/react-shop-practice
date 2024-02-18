@@ -32,7 +32,7 @@ export const Card = ({ data }) => {
             className="absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 rounded-full m-2"
           >
             
-            <CheckIcon className="h-6 w-6 text-white" />
+            <CheckIcon className="h-6 w-6 text-green-500" />
           </div>
       )
     } else {
