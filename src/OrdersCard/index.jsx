@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export const OrdersCard = ({ totalPrice, totalProducts }) => {
   const date = new Date();
   return (
-    <div className="flex justify-between items-center m-3 border rounded-lg border-black p-4 w-80 shadow-md">
+    <div className="flex justify-between items-center m-3 border rounded-lg border-black p-4 w-80 shadow-md bg-white">
       <div className="flex justify-between w-full">
         <div className="flex flex-col">
           <div className="flex items-center mt-2 gap-1">

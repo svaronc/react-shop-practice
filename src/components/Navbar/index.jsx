@@ -7,7 +7,7 @@ export const Navbar = () => {
   const activeStyle = "underline underline-offset-4";
   const context = useContext(ShoppingCartContext);
   return (
-    <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light">
+    <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light bg-zinc-500 text-white">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/" onClick={() => context.setCategory()}>Shopi</NavLink>
@@ -68,7 +68,7 @@ export const Navbar = () => {
         </li>
       </ul>
       <ul className="flex items-center gap-3">
-        <li className="text-black/60">sebastianvaron96@gmail.com</li>
+        <li className="text-white/60">sebastianvaron96@gmail.com</li>
         <li>
           <NavLink
             to="/my-orders"
@@ -93,7 +93,7 @@ export const Navbar = () => {
             Sign In
           </NavLink>
         </li>
-        <li className="flex gap-1 items-center">
+        <li className="flex gap-1 items-center" onClick={() => context.openCheckoutSideMenu()}>
           <BsCart4 cursor={"pointer"} /> {context.count}
         </li>
       </ul>

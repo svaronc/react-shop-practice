@@ -12,7 +12,7 @@ export const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     );
   }
   return (
-    <div className="flex justify-between items-center mb-3 shadow-md rounded-lg border border-black">
+    <div className="flex justify-between items-center mb-3 shadow-md rounded-lg border border-black bg-white">
       <div className=" flex items-center gap-2">
         <figure className="w-20 h-20">
           <img
