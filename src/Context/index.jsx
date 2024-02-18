@@ -25,15 +25,29 @@ export const ShoppingCartProvider = ({ children }) => {
 
   //* Shopping cart order
   const [order, setOrder] = useState([]);
+
+  //* state for search bar
+  const [searchByTitle, setSearchByTitle] = useState(null);
+
   //* state for products and get request to the API
-
   const [items, setItems] = useState([]);
-
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((response) => {
       setItems(response.data);
     });
   }, []);
+
+  //* filtered item
+  const [filteredItems, setFilteredItems] = useState(null);
+  const filteredItemsByTitle = (items, searchByTitle) => {
+    return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+  }
+
+
+  useEffect(() => {
+    if (searchByTitle)
+      setFilteredItems(filteredItemsByTitle(items, searchByTitle));
+  }, [items, searchByTitle]);
 
   return (
     <ShoppingCartContext.Provider
@@ -54,6 +68,10 @@ export const ShoppingCartProvider = ({ children }) => {
         setOrder,
         items,
         setItems,
+        searchByTitle,
+        setSearchByTitle,
+        filteredItems,
+        setFilteredItems,
       }}
     >
       {children}
